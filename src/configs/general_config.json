@@ -1,9 +1,9 @@
 {
   "maintainer": {
-    "name": "Forbole",
-    "url": "https://forbole.com"
+    "name": "Onomy",
+    "url": "https://onomy.io"
   },
   "github": {
-    "reportIssue": "https://github.com/forbole/big-dipper-2.0-cosmos/issues"
+    "reportIssue": "https://github.com/onomyprotocol/big-dipper-2.0-cosmos/issues"
   }
 }
