@@ -1,24 +1,24 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "title": "",
+  "network": "",
+  "icon": "/icons/onomy-icon.svg?sanitize=true",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "/icons/onomy-logo.svg?sanitize=true"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "onomyvalcons",
+    "validator": "onomyvaloper",
+    "account": "onomy"
   },
   "genesis": {
-    "time": "2021-07-13T08:00:00",
+    "time": "2021-12-06T05:54:43",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
+  "primaryTokenUnit": "anom",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
-      "exponent": 6
+    "anom": {
+      "display": "nom",
+      "exponent": 18
     }
   },
   "extra": {
