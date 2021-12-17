@@ -51,18 +51,18 @@ describe('context: SettingsContext', () => {
     const lightTheme = JSON.stringify(createMuiTheme(lightTemplate));
     const darkTheme = JSON.stringify(createMuiTheme(darkTemplate));
 
-    expect(result.current.theme).toBe('light');
-    expect(JSON.stringify(result.current.muiTheme)).toEqual(lightTheme);
-    await act(async () => {
-      await result.current.changeTheme('dark');
-    });
     expect(result.current.theme).toBe('dark');
-    expect(JSON.stringify(result.current.muiTheme)).toBe(darkTheme);
+    expect(JSON.stringify(result.current.muiTheme)).toEqual(darkTheme);
     await act(async () => {
       await result.current.changeTheme('light');
     });
     expect(result.current.theme).toBe('light');
     expect(JSON.stringify(result.current.muiTheme)).toBe(lightTheme);
+    await act(async () => {
+      await result.current.changeTheme('dark');
+    });
+    expect(result.current.theme).toBe('dark');
+    expect(JSON.stringify(result.current.muiTheme)).toBe(darkTheme);
   });
 });
 
