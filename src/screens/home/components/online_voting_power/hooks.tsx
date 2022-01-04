@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import * as R from 'ramda';
-import { formatVotingPower } from '@utils/format_denom';
+import { formatDenom } from '@utils/format_denom';
 import {
   useTotalVotingPowerListenerSubscription,
   useOnlineVotingPowerListenerSubscription,
@@ -83,7 +83,7 @@ export const useOnlineVotingPower = () => {
       0,
       'bonded',
     ], data);
-    bonded = formatVotingPower(bonded, state.denom).value;
+    bonded = formatDenom(bonded, state.denom).value;
     return bonded;
   };
 
