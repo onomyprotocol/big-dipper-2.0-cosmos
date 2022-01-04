@@ -1,0 +1,44 @@
+name: Docker
+
+on:
+  push:
+    branches:
+      - 'dev'
+      - 'testnet'
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
+      - name: Set net based on branch
+        shell: bash
+        run: echo "##[set-output name=net;]$([[ ${{ steps.extract_branch.outputs.branch }} = "dev" ]] && echo "devnet" || echo ${{ steps.extract_branch.outputs.branch }})"
+        id: set_net
+
+      - name: Generate build number
+        id: buildnumber
+        uses: einaregilsson/build-number@v3
+        with:
+          token: ${{secrets.github_token}}
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: onomy/big-dipper-2-${{ steps.set_net.outputs.net }}:latest,onomy/big-dipper-2-${{ steps.set_net.outputs.net }}:v-${{ steps.buildnumber.outputs.build_number }}
+          build-args: |
+            ENV_FILE=${{ steps.set_net.outputs.net }}.env

@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  app:
+    # build the mage before the start or use already built
+    # DOCKER_BUILDKIT=0 docker build -t onomy/big-dipper-2-testnet:latest . --build-arg ENV_FILE=testnet.env
+    image: onomy/big-dipper-2-testnet:latest
+    restart: on-failure
+    ports:
+      - '3000:3000'
