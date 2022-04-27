@@ -70,7 +70,7 @@ Array [
           role="menuitem"
           tabIndex={-1}
         >
-          dark
+          light
           <span
             className="MuiTouchRipple-root"
           />
