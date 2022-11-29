@@ -1,6 +1,6 @@
 {
-  "title": "",
-  "network": "",
+  "title": "Onomy Block Explorer",
+  "network": "onomy-mainnet",
   "icon": "/icons/onomy-icon.svg?sanitize=true",
   "logo": {
     "default": "/icons/onomy-logo.svg?sanitize=true"
